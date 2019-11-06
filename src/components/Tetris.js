@@ -10,10 +10,8 @@ import { useStage } from '../hooks/useStage';
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
-  const [player, setPlayer] = usePlayer();
+  const [player, updatePlayerPos, resetPlayer] = usePlayer();
   const [stage, setStage] = useStage(player);
-  const updatePlayerPos = (o) => {};
-  const resetPlayer = () => {};
   const movePlayer = dir => {
     updatePlayerPos({ x: dir, y: 0 });
   };
@@ -47,7 +45,7 @@ const Tetris = () => {
   return (
     <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
       <StyledTetris>
-        <Stage stage={createStage()} />
+        <Stage stage={stage} />
         <aside>
           {gameOver ?
           <Display gameOver={gameOver} text="Game Over" /> :
