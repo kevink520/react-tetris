@@ -13,9 +13,7 @@ const Tetris = () => {
   const [player, setPlayer] = usePlayer();
   const [stage, setStage] = useStage(player);
   const updatePlayerPos = (o) => {};
-  const setStage = () => {};
   const resetPlayer = () => {};
-  const gameOver = () => {};
   const movePlayer = dir => {
     updatePlayerPos({ x: dir, y: 0 });
   };
@@ -46,8 +44,6 @@ const Tetris = () => {
     }
   };
 
-  const movePlayer = updatePlayerPos(
-
   return (
     <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
       <StyledTetris>
@@ -60,7 +56,7 @@ const Tetris = () => {
             <Display text="Rows" />
             <Display text="Level" />
           </div>}
-          <StartButton onClick={startGame} />
+          <StartButton callback={startGame} />
         </aside>
      </StyledTetris>
     </StyledTetrisWrapper>
