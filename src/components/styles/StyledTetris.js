@@ -27,7 +27,7 @@ export const StyledTetris = styled.div`
   @media (max-width: 500px) {
     flex-direction: column;
     align-items: center;
-    padding: 12;
+    padding: 12px;
     
     aside {
       max-width: 100%;
