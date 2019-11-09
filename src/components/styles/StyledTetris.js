@@ -26,11 +26,13 @@ export const StyledTetris = styled.div`
 
   @media (max-width: 500px) {
     flex-direction: column;
-    alignItems: center;
+    align-items: center;
+    padding: 12;
     
     aside {
       max-width: 100%;
       order: -1;
+      padding: 0;
     }
   }
 `
