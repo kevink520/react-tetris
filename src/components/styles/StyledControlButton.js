@@ -17,6 +17,7 @@ export const StyledControlButton = styled.button`
   border: 4px solid #333;
   background: transparent;
   text-align: center;
+  touch-action: manipulation;
 
   span {
     font-size: 20px;
