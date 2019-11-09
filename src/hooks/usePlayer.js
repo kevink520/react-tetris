@@ -21,7 +21,7 @@ export const usePlayer = () => {
 
   const playerRotate = (stage, dir) => {
     const clonedPlayer = JSON.parse(JSON.stringify(player));
-    const clonedPlayerTetromino = rotate(clonedPlayer.tetromino, dir);
+    clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir);
     const pos = clonedPlayer.pos.x;
     let offset = 1;
     while(checkCollision(clonedPlayer, stage, { x: 0, y: 0 })) {
