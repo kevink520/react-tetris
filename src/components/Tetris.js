@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
+import ControlButton from './ControlButton';
 import { createStage, checkCollision } from '../gameHelpers';
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
+import { StyledDisplayWrapper } from './styles/StyledDisplay';
+import { StyledControlButtonsWrapper } from './styles/StyledControlButton';
 import { useInterval } from '../hooks/useInterval';
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
@@ -77,6 +80,31 @@ const Tetris = () => {
     }
   };
 
+  const handleLeftButtonClick = () => {
+    if (!gameOver) {
+      movePlayer(-1);
+    }
+  };
+
+  const handleRightButtonClick = () => {
+    if (!gameOver) {
+      movePlayer(1);
+    }
+  };
+
+  const handleDownButtonClick = () => {
+    if (!gameOver) {
+      dropPlayer();
+      setDropTime(1000 / (level + 1) + 200);
+    }
+  };
+
+  const handleRotateButtonClick = () => {
+    if (!gameOver) {
+      playerRotate(stage, 1);
+    }
+  };
+
   useInterval(() => {
     drop();
   }, dropTime);
@@ -88,13 +116,19 @@ const Tetris = () => {
         <aside>
           {gameOver ?
           <Display gameOver={gameOver} text="Game Over" /> :
-          <div>
+          <StyledDisplayWrapper>
             <Display text={`Score: ${score}`} />
             <Display text={`Rows: ${rows}`} />
             <Display text={`Level: ${level}`} />
-          </div>}
+          </StyledDisplayWrapper>}
           <StartButton callback={startGame} />
         </aside>
+        <StyledControlButtonsWrapper>
+          <ControlButton icon="fa-chevron-left" onClick={handleLeftButtonClick} />
+          <ControlButton icon="fa-chevron-down" onClick={handleDownButtonClick} />
+          <ControlButton icon="fa-chevron-right" onClick={handleRightButtonClick} />
+          <ControlButton icon="fa-rotate-right" onClick={handleRotateButtonClick} />
+        </StyledControlButtonsWrapper>
      </StyledTetris>
     </StyledTetrisWrapper>
   );

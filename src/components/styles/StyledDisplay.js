@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const StyledDisplayWrapper = styled.div`
+  @media (max-width: 500px) {
+    display: flex;
+  }
+`
+
 export const StyledDisplay = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -14,5 +20,10 @@ export const StyledDisplay = styled.div`
   background: #000;
   font-family: Pixel, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
+
+  @media (max-width: 500px) {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
 `
 

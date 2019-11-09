@@ -14,5 +14,10 @@ export const StyledStartButton = styled.button`
   font-size: 1rem;
   outline: none;
   cursor: pointer;
+
+  @media (max-height: 500px) {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
 `
 
