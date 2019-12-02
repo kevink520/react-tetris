@@ -3,7 +3,7 @@
   "short_name": "React Tetris",
   "theme_color": "#6c3aa0",
   "background_color": "#030303",
-  "display": "browser",
+  "display": "standalone",
   "Scope": "/",
   "start_url": "/",
   "icons": [
